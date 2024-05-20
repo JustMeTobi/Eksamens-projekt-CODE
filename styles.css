@@ -1,0 +1,1525 @@
+/* -------------------------------------------------------------
+---------------------------- Farver ----------------------------
+------------------------------------------------------------- */
+
+:root {
+    --lyseBlå: #8AB4AC;
+    --mørkGrøn: #15362B;
+    --white: #fff;
+    --rød: #851f14;
+    --gold: #dbb778;
+    --nav-height: 90px;
+}
+
+/* ------------------------------------------------------------------------------
+-------------------------- Gælder for alle dokumenter ---------------------------
+------------------------------------------------------------------------------ */
+
+* {
+    background-color: var(--mørkGrøn);
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+
+/* Scrool barens udseende */
+body::-webkit-scrollbar {
+    width: 0.7em;
+}
+
+body::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+    border-radius: 1em;
+}
+
+.emailLink {
+    color: var(--white);
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.emailLink:hover {
+    color: var(--lyseBlå);
+}
+
+.instagramLink {
+    color: var(--white);
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-transform: uppercase;
+}
+
+.instagramLink:hover {
+    color: var(--lyseBlå);
+}
+
+.facebookLink {
+    color: var(--white);
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+
+.facebookLink:hover {
+    color: var(--lyseBlå);
+}
+
+.pilenPåSiderne {
+    position: fixed;
+    top: 50rem;
+    left: 95%;
+    background: transparent;
+    bottom: 5rem;
+}
+
+/* ----------------------------------------------------------------------
+------------------------------- Font typer ------------------------------
+---------------------------------------------------------------------- */
+
+/* Normal tekster */
+p {
+    color: var(--white);
+    background: transparent;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 28px;
+}
+
+/* Hoved Overskifter */
+h1 {
+    font-family: "Arbutus", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--gold);
+    text-transform: uppercase;
+    background: transparent;
+    font-size: 72px;
+}
+
+/* Under Overskrifter */
+h2 {
+    color: var(--white);
+    font-size: 48px;
+    font-family: "Francois One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-transform: uppercase;
+}
+
+h3 {
+    color: var(--white);
+    font-size: 24px;
+    font-family: "Francois One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-transform: none;
+}
+
+/* Footer overskrifter */
+h5 {
+    color: var(--gold);
+    font-size: 24px;
+    font-family: "Francois One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Citat skrift */
+h6 {
+    color: var(--lyseBlå);
+    font-size: 16px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+
+/* ------------------------------------------------------------------------
+--------------------------- Forskellige knapper ---------------------------
+------------------------------------------------------------------------ */
+
+/* Primær Knap */
+.primærKnap {
+    display: inline-flex;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    color: var(--mørkGrøn);
+    font-weight: 900;
+    font-size: 24px;
+    background: var(--gold);
+    border: solid 4px var(--gold);
+
+    font-family: "Francois One", sans-serif;
+    font-style: bold;
+}
+
+/* Sekundær Knap */
+.sekundærKnap {
+    display: inline-flex;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    color: var(--gold);
+    font-weight: 900;
+    font-size: 24px;
+    background: transparent;
+    border: solid 4px var(--gold);
+
+    font-family: "Francois One", sans-serif;
+    font-style: bold;
+}
+
+.knapHover:hover {
+    border: var(--white) solid 4px;
+    background: transparent;
+    color: var(--white);
+}
+
+
+
+
+/* ----------------------------------------------------------------------
+--------------------------- Navigations linje ---------------------------
+---------------------------------------------------------------------- */
+
+.nav {
+    width: 100%;
+    height: var(--nav-height);
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: var(--mørkGrøn);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+    z-index: 3;
+}
+
+/* Skjuler Navigationen */
+.nav--hidden {
+    transform: translateY(calc(-1 * var(--nav-height)));
+    box-shadow: none;
+}
+
+/* Logoet i Navigationen */
+.navLogo {
+    width: 10rem;
+    background-color: transparent;
+}
+
+.nav__link {
+    color: var(--gold);
+    font-family: "Francois One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+
+    font-size: 24px;
+    text-decoration: none;
+    text-transform: uppercase;
+    background: transparent;
+
+    /* For at få underline på Hover effect */
+    cursor: pointer;
+    position: relative;
+}
+
+/* For at få underline på Hover effect */
+.nav__link::after {
+    content: '';
+    position: absolute;
+    height: 4px;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    background: var(--gold);
+    transition: width .2s ease-out;
+}
+
+/* For at få underline på Hover effect */
+.nav__link:hover::after {
+    width: 100%;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+/* Giver den aktive side en streg under sig */
+.active {
+    /* text-decoration: underline 6px; */
+    background-color: var(--gold);
+    color: #15362B;
+    padding: 8px;
+    border-radius: 2px;
+}
+
+/* Skjuler Iconet i navigationen */
+.nav .icon {
+    display: none;
+    color: var(--gold);
+    font-size: 10vw;
+    background-color: transparent;
+}
+
+
+/* ---------------------------------------------------------------
+--------------------------- Index/Home ---------------------------
+--------------------------------------------------------------- */
+
+#frontVideo {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: -18px 0;
+}
+
+/* Videoen på forsiden */
+.videoFront {
+    position: relative;
+    top: 0;
+    width: 100%;
+    overflow: hidden;
+    filter: brightness(65%);
+}
+
+/* Pilen ned på forside videoen */
+.arrowDown {
+    background-color: transparent;
+    width: 3rem;
+}
+
+/* For at få den i midten af skærmen */
+.pilenPåForsiden {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: -6em;
+    background-color: transparent;
+}
+
+/* Mute knap */
+#muteButton {
+    margin-top: 20px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    
+    /* Få den hvor placeret et bestemt sted */
+    position: absolute;
+    top: 45em;
+    right: 1em;
+}
+
+#muteButton img {
+    width: 32px;
+    height: 32px;
+    background: transparent;
+}
+
+.instagramIconVideo img{
+    width: 32px;
+    height: 32px;
+    background: transparent;
+    position: absolute;
+    top: 35em;
+    right: 1em;
+}
+
+.linjeVideo {
+    width: 4px;
+    height: 300px;
+    background-color: var(--gold);
+
+    position: absolute;
+    top: 14em;
+    right: 2em;
+}
+
+/* Første del af forside */
+.homeFirstDel {
+    padding: 20rem 0;
+    display: flex;
+    width: 100%;
+    height: 6rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.homeOpenBG {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5em;
+    width: 85%;
+    padding: 4em 0;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.627), rgba(0, 0, 0, 0.6)), url(img/libraVindueTattoo.png);
+}
+
+.homeOpenBG p {
+    font-weight: 900;
+    font-size: 40px;
+}
+
+.knapDiv {
+    display: flex;
+    background: transparent;
+    gap: 3rem;
+}
+
+/* Anden del */
+.homeAndenDel {
+    padding: 5rem 0;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+}
+
+.h1home {
+    font-family: "Arbutus", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.whiteText {
+    color: var(--white);
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+
+/* Tredje del */
+.homeTredjeDel {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 5rem 0;
+}
+
+
+/* Venstre del */
+.citatBillede {
+    width: 556px;
+    height: 556px;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.citatPG {
+    width: 556px;
+    flex-shrink: 0;
+}
+
+/* Højre del */
+.citatStykke {
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    width: 40%;
+    gap: 1rem;
+}
+
+.citatText {
+    font-style: italic;
+}
+
+.citatTextStykke {
+    margin-top: 5rem;
+}
+
+.qouteVenstreTop {
+    width: 3rem;
+    position: relative;
+    top: 0px;
+    background: transparent;
+}
+
+.qouteHøjreBund {
+    width: 3rem;
+    position: relative;
+    left: 90%;
+    
+    background: transparent;
+    rotate: 180deg;
+}
+
+
+/* Fjerde del */
+.homeFjerdeDel {
+    padding: 20rem 0;
+    display: flex;
+    width: 100%;
+    height: 6rem;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.igTextVenstre {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+}
+
+.IGLink {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.iconIG {
+    width: 2rem;
+    filter: invert(100%);
+    background: transparent;
+    margin-right: 1rem;
+}
+
+.igFeed {
+    width: 620px;
+    height: 620px;
+}
+
+
+
+
+
+/* -----------------------------------------------------------
+------------------------- After Care -------------------------
+----------------------------------------------------------- */
+
+.head_h1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10rem;
+    margin-bottom: 5rem;
+}
+
+/* ---- Kasse med flexbox ---- */
+.ac_flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 4rem;
+    border: solid 5px #ffffff;
+    margin-left: 15rem;
+    margin-right: 15rem;
+}
+
+.tal_h1 {
+    margin-left: 3rem;
+    color: #ffffff;
+    font-size: 100px;
+}
+
+.p_ac {
+    width: 65%;
+    margin-top: 1rem;
+    font-weight: 500;
+    text-wrap: pretty;
+    margin-left: 2rem;
+}
+
+.img_ac {
+    width: 15%;
+}
+
+/* -----------------------------------------------------------
+-------------------------- Artist ----------------------------
+----------------------------------------------------------- */
+
+#artistFront {
+    text-align: center;
+    margin-top: 10rem;
+    margin-bottom: 5rem;
+}
+
+.artistBoxWrap {
+    display: flex;
+    width: 90%;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 5em 5em;
+    flex-wrap: wrap;
+    margin: 4rem;
+}
+
+.artistIMG {
+    width: 317px;
+    height: 400px; 
+}
+
+.artistProfileText {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    color: var(--white);
+    padding-top: 0.5em;
+}
+
+.artistProfileText img {
+    position: relative;
+}
+
+.artistProfileText h3 {
+    font-size: 24px;
+    width: 257px;
+}
+
+.artistProfileBox:hover {
+    scale: 1.15;
+}
+
+/* ---------------------------------------------------------------------
+------------------------ Under sider til Artist ------------------------
+--------------------------------------------------------------------- */
+
+#artistUnderside {
+    text-align: center;
+}
+
+/* Knap til at gå en side tilbage */
+.BackButton {
+    border: none;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    gap: 1em;
+    color: var(--gold);
+    font-size: 24px;
+    font-family: "Francois One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-transform: uppercase;
+    background-color: transparent;
+    z-index: 2;
+
+    /* Sticky position for at kunne altid gå tilbage */
+    position: sticky;
+    left: 1em;
+    top: 6rem;
+}
+
+/* Effect på knappen når man holder musen over */
+.BackButton:hover {
+    scale: 1.1;
+}
+
+/* Baggrund på tilbage knappens pil icon */
+.BBBG {
+    background-color: transparent;
+}
+
+/* Første del af underside  */
+.AUFørsteDel {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 40px;
+    margin-top: 5em;
+}
+
+.AUVenstreFDel {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: start;
+}
+
+#artistUnderside h1 {
+    font-size: 44px;
+    text-align: start;
+}
+
+.AUHøjreFDel {
+    background-color: transparent;
+}
+
+.AUHøjreFDel img {
+    width: 380px;
+}
+
+
+/* Instagram link og icon delen */
+.AUIG {
+    display: flex;
+    flex-direction: row;
+    justify-content: baseline;
+    align-items: center;
+    gap: 1em;
+}
+
+/* Qoute delen på Artist underside */
+.AUQouteDel {
+    display: flex;
+    justify-content: center;
+    margin: 2em 0;
+}
+
+/* Citat teksten */
+.AUCitat {
+    width: 67%;
+}
+
+/* Citat tegnet til venstre */
+.qouteTegnVT {
+    width: 52px;
+    height: 52px;
+    background-color: transparent;
+    
+    /* Positionen kommer lidt op */
+    position: relative;
+    top: -2em;
+}
+
+/* Qoute tegnet til højre */
+.qouteTegnBH {
+    width: 52px;
+    height: 52px;
+    background-color: transparent;
+
+    /* Positionen kommer lidt ned */
+    position: relative;
+    bottom: -3em;
+}
+
+#artistUnderside h2 {
+    margin: 1em 0;
+}
+
+/* Billede galleriet */
+
+.billedeCarousel {
+    display: flex;
+    padding: 16px;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.IGBoxPicture img {
+    width: 370px;
+    height: 370px;
+}
+
+/* Linje til at skære indholdet */
+
+.section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 2em 0;
+}
+
+.lineBetweenContent {
+    width: 1140px;
+    height: 4px;
+    background: var(--gold);
+}
+
+/* Feedback delen */
+.feedbackDel {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+
+/* Feedback Boxene */
+.feedbackBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: 30%;
+}
+
+.feedbackBox p {
+    font-size: 16px;
+}
+
+/* Stjerne (tattoo gun) box */
+.starsGivin {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.starIcon {
+    width: 32px;
+    height: 32px;
+}
+
+/* -----------------------------------------------------------
+-------------------------- About Us --------------------------
+----------------------------------------------------------- */
+
+
+/* ---- Overskrift ----*/
+.h1_about {
+    margin-top: 10rem;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.h2_about {
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 3rem 0;
+}
+
+.img_butik {
+    width: 35%;
+    border: #8AB4AC solid 4px;
+}
+
+/* ---- Flexbox med åbningstider ---- */
+.kasse_tider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    border: solid 4px #8AB4AC;
+    border-right: none;
+    padding: 6em;
+    gap: 4rem;
+}
+
+.kasse_flex {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+}
+
+.mikkel_img {
+    width: 45vw;
+    height: 100%;
+}
+
+.p_mikkel {
+    display: flex;
+    flex-direction: column;
+    width: 42%;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+}    
+
+.p_mikkel p {
+    font-size: 24px;
+    line-height: 1.9;
+}
+
+
+/* ---- Flexbox med billede + tekst ---- */
+
+.kasse_mikkel {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 6rem;
+}
+
+/* ----------------------------------------------------------
+-------------------------- Booking --------------------------
+---------------------------------------------------------- */
+
+/* ---- Booking tekst ---- */
+.img_dickies {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 36rem;
+}
+
+.p_booking {
+    display: flex;
+    width: 60%;
+    margin: 3rem 0 2rem 0;
+    font-weight: 100;
+}
+
+.flex_booking {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.bookingText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ---- flexbox med de tre kasser ---- */
+
+.flex_ikoner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex_kasse {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem;
+    border: solid 5px #8AB4AC;
+    margin-bottom: 40px;
+    width: 920px;
+}
+
+.p_socials {
+    margin-top: 1rem;
+    margin-left: 2rem;
+}
+
+.icon_socials {
+    width: 7%;
+    margin-right: 1.5rem;
+}
+
+/* ---- Liste ---- */
+
+li {
+    color: #ffffff;
+    font-size: 25px;
+}
+
+.liste {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+ol {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+
+
+/* -----------------------------------------------------------
+--------------------------- Footer ---------------------------
+----------------------------------------------------------- */
+
+
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Linje i toppen af Footer */
+.linjeMellem {
+    width: 308px;
+    height: 4px;
+    background: var(--gold);
+    margin: 5rem 0;
+}
+
+/* Footer midter del af tre sektioner */
+.footerMidt {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: start;
+}
+
+/* Venstre del af Footer */
+.footerVenstreDel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: 33%;
+}
+
+.footerVenstreDel p {
+    font-size: 16px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Midter delen af Footer */
+
+.footerMidtDel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: 33%;
+}
+
+.footerMidtDel a {
+    color: var(--white);
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.footerMidtDel a:hover {
+    scale: 1.2;
+    color: var(--gold);
+}
+
+/* Højre del af Footer */
+
+.footerHøjreDel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: 33%;
+}
+
+/* Text nederst i Footer */
+
+.footerText {
+    color: var(--gold);
+    text-align: center;
+    font-size: 20px;
+    font-family: "Francois One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    line-height: normal;
+    margin: 2rem 0;
+}
+
+
+/* -----------------------------------------------------------
+------------------------- Responsive -------------------------
+----------------------------------------------------------- */
+
+
+/* Til Telefon */
+
+
+
+@media screen and (max-width: 600px) {
+
+    /* ---------------
+    Knapper
+    --------------- */
+
+    .primærKnap, .sekundærKnap {
+        padding: 4px;
+        font-size: 16px;
+    }
+
+    /* ---------------
+    Fonts 
+    --------------- */
+
+    h1 {
+        font-size: 36px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+
+    /* ---------------
+    Navigations linjen 
+    --------------- */
+
+    /* Gør at tredje punkt i navigationen bliver og resten bliver skjult */
+
+    .nav {
+        height: auto;
+        overflow: hidden;
+        justify-content: space-between;
+        padding-left: 16px;
+        z-index: 3;
+    }
+
+    .nav a {
+        display: block;
+        text-align: center;
+    }
+    
+    .nav a:not(:nth-child(3)) {
+        display: none;
+    }
+
+    .nav.responsive a:nth-child(3) {
+        order: -2;
+    }
+
+    .navLogo {
+        width:6rem;
+    }
+
+    .nav a.icon {
+        float: right;
+        display: block;
+    }
+
+    .nav.responsive {
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        padding: 80px 0;
+    }
+
+    .nav.responsive .icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .nav.responsive a {
+        float: none;
+        display: block;
+        text-align: center;
+        padding: 8px 0;
+    }
+
+    .nav.responsive .nav__link {
+        width: 100%;
+    }
+    .nav.responsive .navLogo {
+        width: 50%;
+    }
+
+    .nav__link.active {
+        background-color: var(--gold);
+        color: #15362B;
+        opacity: 100%;
+        width: 100%;
+        padding: 12px 0;
+        border-radius: 0;
+    }
+
+    .fa, .fa-bars {
+        padding: 16px 32px;
+    }
+
+    /* ---------------
+    Home / Index 
+    --------------- */
+
+    #frontVideo {
+        margin: 4px 0;
+    }
+
+    .videoFront {
+        top: 16vw;
+        width: 200%;
+    }
+
+    .pilenPåForsiden {
+        top: -1rem;
+    }
+
+    .arrowDown {
+        width: 1.5rem;
+    }
+
+    #muteButton {
+        top: 87vw;
+    }
+
+    #muteButton img{
+        width: 70%;
+        height: 70%;
+    }
+
+    .instagramIconVideo img{
+        top: 77vw;
+        width: 28px;
+        height: 28px;
+    }
+
+    .linjeVideo {
+        height: 40vw;
+        top: 30vw;
+        right: 28px;
+    }
+
+    .homeOpenBG {
+        text-align: center;
+        width: 100%;
+    }
+
+    .homeOpenBG p {
+        font-weight: 700;
+        font-size: 20px;
+    }
+
+    .knapDiv {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .homeAndenDel {
+        text-align: center;
+        padding: 32px;
+    }
+
+    .homeTredjeDel {
+        flex-direction: column-reverse;
+        align-items: center;
+        padding: 32px 0;
+    }
+
+    .citatBillede, .citatBillede img{
+        width: 256px;
+        height: 296px;
+    }
+
+    .citatStykke {
+        gap: 0;
+        width: 100%;
+        padding: 0 18px;
+    }
+
+    .citatStykke h1 {
+        text-align: center;
+    }
+
+    .citatTextStykke {
+        margin: 18px 0;
+    }
+
+    .citatText {
+        font-size: 14px;
+    }
+
+    .homeFjerdeDel {
+        flex-direction: column;
+        gap: 16px;
+        padding: 18px 0;
+        height: auto;
+    }
+
+    .igFeed {
+        display: none;
+    }
+
+    /* ---------------
+    Artist Front
+    --------------- */
+
+    #artistFront {
+        margin-top: 5rem;
+    }
+
+    .artistBoxWrap {
+        margin: 4rem 0;
+        width: 100%;
+    }
+
+    .artistIMG {
+        width: 267px;
+        height: 300px; 
+    }
+
+    /* ---------------
+    Artist Undersider 
+    --------------- */
+
+    #artistUnderside h1 {
+        text-align: center;
+    }
+
+    .BackButton {
+        position: fixed;
+        top: 4.5rem;
+    }
+
+    .AUFørsteDel {
+        flex-direction: column-reverse;
+        gap: 0;
+        
+    }
+
+    .AUVenstreFDel {
+        align-items: center;
+    }
+
+    .AUVenstreFDel p {
+        font-size: 16px;
+    }
+
+    .AUHøjreFDel img {
+        width: 240px;
+    }
+
+    .AUQouteDel {
+        margin: 5rem 0 1rem 0;
+    } 
+
+    .AUCitat {
+        width: 60%;
+        font-size: 16px;
+    }
+
+    .qouteTegnBH {
+        width: 32px;
+        height: 32px;
+        bottom: -5rem;
+    }
+    .qouteTegnVT {
+        width: 32px;
+        height: 32px;
+        top: -1rem;
+    }
+
+    .billedeCarousel {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .IGBoxPicture img {
+        width: 270px;
+        height: 270px;
+    }
+
+    .lineBetweenContent {
+        width: 240px;
+    }
+
+    .feedbackDel {
+        flex-direction: column;
+        gap: 4rem;
+        margin-bottom: 2rem;
+    }
+
+    .feedbackBox {
+        width: 70%;
+    }
+
+    .pilenPåSiderne {
+        display: none;
+    }
+
+    /* ---------------
+    After care 
+    --------------- */
+
+    .head_h1 {
+        text-align: center;
+        margin: 5rem 0 2rem 0;
+    }
+
+    .ac_flex {
+        margin: 2vw;
+    }
+
+    .tal_h1 {
+        font-size: 32px;
+        margin: 1rem;
+    }
+    
+    .p_ac {
+        font-size: 14px;
+        font-weight: 400;
+        margin: 1rem 0;
+    }
+
+    /* ---------------
+    After care 
+    --------------- */
+
+    .h1_about {
+        margin: 5rem 0 2rem 0;
+    }
+
+    .kasse_flex {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .kasse_tider {
+        padding: 1.5rem;
+        margin: 0 1rem;
+        border: 4px solid var(--lyseBlå);
+        border-top: none;
+        width: 90%;
+    }
+
+    .kasse_tider h2 {
+        font-size: 28px;
+    }
+
+    .kasse_tider p {
+        font-size: 16px;
+    }
+
+    .img_butik {
+        width: 90%;
+        margin: 0 1.5rem;
+        padding: 1rem;
+    }
+
+    .kasse_mikkel {
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .h2_about {
+        margin: 5rem 0 2rem 0;
+        font-size: 28px;
+    }
+
+    .mikkel_img {
+        width: 90%;
+        margin: 1rem;
+    }
+
+    .p_mikkel {
+        width: 100%;
+
+    }
+
+    .p_mikkel p {
+        font-size: 16px;
+    }
+
+    /* ---------------
+    Booking 
+    --------------- */
+
+    .p_booking {
+        width: 100%;
+        margin: 1rem 0 2rem 0;
+        padding: 0 1rem;
+    }
+
+    .img_dickies {
+        height: auto;
+    }
+
+    .flex_booking {
+        flex-direction: column-reverse;
+    }
+
+    .flex_booking h2 {
+        font-size: 28px;
+        margin-top: 3rem;
+    }
+
+    .flex_ikoner .h2_about {
+        font-size: 28px;
+        padding: 1rem;
+        margin: 1rem 0;
+    }
+
+    .flex_kasse {
+        width: 85%;
+        padding: 1rem;
+        text-align: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        margin: 8px;
+    }
+
+    .p_socials {
+        margin: 0;
+        font-size: 14px;
+        font-weight: 200;
+    }
+
+    .icon_socials {
+        height: 24px;
+        width: 24px;
+        margin: 0;
+    }
+
+    .liste {
+        margin: 1rem 0;
+    }
+
+    .liste .h2_about {
+        margin: 1rem 0 0 0;
+        font-size: 28px;
+    }
+
+    ol {
+        margin: 0;
+    }
+
+    li {
+        margin: 1rem 2rem;
+        font-size: 16px;
+    }
+    
+
+    /* ---------------
+    Footer 
+    --------------- */
+    .linjeMellem {
+        margin: 8px;
+    }   
+
+    .footerMidt {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 16px;
+    }
+
+    .footerVenstreDel, .footerMidtDel, .footerHøjreDel {
+        width: 100%;
+    }
+}
+
+
