@@ -52,13 +52,19 @@ mediaQuery.addListener(handleMediaQueryChange);
 // --------------- 
 
 function myFunction() {
+  // Hent elementet med id 'navbar' og gem det i variablen x
   var x = document.getElementById("navbar");
+  
+  // Tjek om klassens navn for elementet er præcis "nav"
   if (x.className === "nav") {
-    x.className += " responsive";
+    // Hvis klassens navn er "nav", tilføj " responsive" til klassens navn
+    x.className += " responsive"; // Resultatet bliver ".nav .responsive"
   } else {
+    // Hvis klassens navn ikke er "nav", sæt klassens navn tilbage til "nav"
     x.className = "nav";
   }
 }
+
 
 // --------------- 
 // Burgermenu icon. Brugt til at trykke fra og til
@@ -160,6 +166,7 @@ initMap();
 // --------------- 
 
 function goBack() {
+  // Brug browserens historik til at gå tilbage til den forrige side
   window.history.back()
 }
 
