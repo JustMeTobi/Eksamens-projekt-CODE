@@ -217,6 +217,7 @@ h6 {
 /* Skjuler Navigationen */
 .nav--hidden {
     transform: translateY(calc(-1 * var(--nav-height)));
+    /* --nav-height er 90px og lagt i Root */
     box-shadow: none;
 }
 
