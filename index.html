@@ -68,8 +68,6 @@
             <button id="muteButton">
                 <img src="img/volumeOn.png" alt="Mute" id="muteIcon">
             </button>
-            <a class="instagramIconVideo" href="https://www.instagram.com/libra_classic/"><img src="img/InstagramIconBeige.png" alt=""></a>
-            <div class="linjeVideo"></div>
 
             <!--
             JavaScript for Mute knap 
@@ -77,23 +75,30 @@
             -->
             <script>
                 // For at få elementer fra dokumentet
-                const video = document.getElementById('myVideo');
-                const muteButton = document.getElementById('muteButton');
-                const muteIcon = document.getElementById('muteIcon');
+                const video = document.getElementById('myVideo'); // Hent video-elementet fra dokumentet
+                const muteButton = document.getElementById('muteButton'); // Hent knappen til at slå lyden fra/fra fra dokumentet
+                const muteIcon = document.getElementById('muteIcon'); // Hent ikonet for lydstyrkekontrollen fra dokumentet
             
-                // Tilføj event listener til knappen
+                // Tilføj en eventlistener til muteButton, der lytter efter klikbegivenheder
                 muteButton.addEventListener('click', () => {
+                    // Hvis videoen er lydløs, så slå lyden til
                     if (video.muted) {
-                        video.muted = false;
-                        muteIcon.src = 'img/volumeOn.png';  // Ændre lyd iconet
-                        muteIcon.alt = 'Mute';
-                    } else {
-                        video.muted = true;
-                        muteIcon.src = 'img/muteIcon.png';  // Ændre til Unmute iconet
-                        muteIcon.alt = 'Unmute';
+                        video.muted = false; // Slå lyden til for videoen
+                        muteIcon.src = 'img/volumeOn.png'; // Ændre ikonet til lydstyrkeikonet (tændt)
+                        muteIcon.alt = 'Mute'; // Opdater alt-attributten for ikonet til 'Mute' for skærmlæsere
+                    } else { // Hvis videoen ikke er lydløs, så slå lyden fra
+                        video.muted = true; // Slå lyden fra for videoen
+                        muteIcon.src = 'img/muteIcon.png'; // Ændre ikonet til lydstyrkeikonet (slukket)
+                        muteIcon.alt = 'Unmute'; // Opdater alt-attributten for ikonet til 'Unmute' for skærmlæsere
                     }
                 });
             </script>
+
+
+            <a class="instagramIconVideo" href="https://www.instagram.com/libra_classic/"><img src="img/InstagramIconBeige.png" alt=""></a>
+            <div class="linjeVideo"></div>
+
+            
             
         </div>
 
